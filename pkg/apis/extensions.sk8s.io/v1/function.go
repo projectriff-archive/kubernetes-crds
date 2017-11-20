@@ -40,6 +40,8 @@ type FunctionSpec struct {
 	// +optional
 	Output string `json:"output,omitempty"`
 
+	IdleTimeout int `json:"idleTimeout,omitempty"`
+
 	Container kapi.Container `json:"container"`
 
 }
