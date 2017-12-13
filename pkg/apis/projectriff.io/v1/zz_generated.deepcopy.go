@@ -21,6 +21,7 @@
 package v1
 
 import (
+	core_v1 "k8s.io/api/core/v1"
 	conversion "k8s.io/apimachinery/pkg/conversion"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	reflect "reflect"
@@ -156,6 +157,13 @@ func (in *FunctionSpec) DeepCopyInto(out *FunctionSpec) {
 		}
 	}
 	in.Container.DeepCopyInto(&out.Container)
+	if in.Volumes != nil {
+		in, out := &in.Volumes, &out.Volumes
+		*out = make([]core_v1.Volume, len(*in))
+		for i := range *in {
+			(*in)[i].DeepCopyInto(&(*out)[i])
+		}
+	}
 	return
 }
 

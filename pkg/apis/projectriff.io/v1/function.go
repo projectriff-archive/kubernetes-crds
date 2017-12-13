@@ -58,6 +58,10 @@ type FunctionSpec struct {
 	// Container definition to use for the function.
 	Container kapi.Container `json:"container"`
 
+	// Volume definitions to use for the function.
+	// +optional
+	Volumes []kapi.Volume `json:"volumes,omitempty"`
+
 }
 
 // Status (computed) for a function
