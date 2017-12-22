@@ -7,6 +7,11 @@ GENERATED_SOURCE = pkg/apis/projectriff.io/v1/zz_generated.deepcopy.go
 
 GO_SOURCES = $(shell find pkg/apis -type f -name '*.go' ! -path $(GENERATED_SOURCE))
 
+PKGS = $(shell go list ./pkg/...)
+
+build: $(GO_SOURCES)
+	go build $(PKGS)
+
 codegen: $(GENERATED_SOURCE)
 
 $(GENERATED_SOURCE): $(GO_SOURCES)
