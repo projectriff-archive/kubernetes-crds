@@ -1,5 +1,5 @@
-hash: feca8c20ff6dbd02d6eb25a7e687c0724e766788bdad61e813eea2bb6ee0f52f
-updated: 2018-01-02T16:06:26.526928+01:00
+hash: 4bfc86323859a3f0c30fa4953ca9d2116fdb694438c88099c63e86a0cb429e2d
+updated: 2018-01-02T17:37:15.854491+01:00
 imports:
 - name: github.com/davecgh/go-spew
   version: 782f4967f2dc4564575ca782fe2d04090b5faca8
@@ -9,6 +9,8 @@ imports:
   version: ff4f55a206334ef123e4f79bbf348980da81ca46
   subpackages:
   - log
+- name: github.com/emicklei/go-restful-swagger12
+  version: dcef7f55730566d41eae5db10e7d6981829720f6
 - name: github.com/ghodss/yaml
   version: 73d445a93680fa1a78ae23a5839bad48f32ba1ee
 - name: github.com/go-openapi/jsonpointer
@@ -97,11 +99,9 @@ imports:
 - name: gopkg.in/yaml.v2
   version: 53feefa2559fb8dfa8d81baad31be332c97d6c77
 - name: k8s.io/api
-  version: 11147472b7c934c474a2c484af3c0c5210b7a3af
+  version: f63f838f2e6d362a1fd4a710ae13f603e4b51ea9
   subpackages:
   - admissionregistration/v1alpha1
-  - admissionregistration/v1beta1
-  - apps/v1
   - apps/v1beta1
   - apps/v1beta2
   - authentication/v1
@@ -115,7 +115,6 @@ imports:
   - batch/v2alpha1
   - certificates/v1beta1
   - core/v1
-  - events/v1beta1
   - extensions/v1beta1
   - networking/v1
   - policy/v1beta1
@@ -125,10 +124,9 @@ imports:
   - scheduling/v1alpha1
   - settings/v1alpha1
   - storage/v1
-  - storage/v1alpha1
   - storage/v1beta1
 - name: k8s.io/apimachinery
-  version: 019ae5ada31de202164b118aee88ee2d14075c31
+  version: 5134afd2c0c91158afac0d8a28bd2177185a3bcc
   subpackages:
   - pkg/api/equality
   - pkg/api/errors
@@ -171,7 +169,7 @@ imports:
   - pkg/watch
   - third_party/forked/golang/reflect
 - name: k8s.io/client-go
-  version: 78700dec6369ba22221b72770783300f143df150
+  version: 1b75876d45719a84085528ee621939b0c68a4b85
   subpackages:
   - discovery
   - discovery/fake
@@ -185,10 +183,11 @@ imports:
   - tools/metrics
   - tools/pager
   - transport
-  - util/buffer
   - util/cert
   - util/flowcontrol
   - util/integer
+- name: k8s.io/code-generator
+  version: 25fd8c8ddbf75b223882df4479f8b8e615da05ae
 - name: k8s.io/kube-openapi
   version: 868f2f29720b192240e18284659231b440f9cda5
   subpackages:
