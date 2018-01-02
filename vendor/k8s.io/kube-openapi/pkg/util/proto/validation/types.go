@@ -127,9 +127,6 @@ func (item *mapItem) VisitKind(schema *proto.Kind) {
 	}
 }
 
-func (item *mapItem) VisitArbitrary(schema *proto.Arbitrary) {
-}
-
 func (item *mapItem) VisitReference(schema proto.Reference) {
 	// passthrough
 	schema.SubSchema().Accept(item)
@@ -171,9 +168,6 @@ func (item *arrayItem) VisitMap(schema *proto.Map) {
 
 func (item *arrayItem) VisitKind(schema *proto.Kind) {
 	item.AddValidationError(InvalidTypeError{Path: schema.GetPath().String(), Expected: "array", Actual: "map"})
-}
-
-func (item *arrayItem) VisitArbitrary(schema *proto.Arbitrary) {
 }
 
 func (item *arrayItem) VisitReference(schema proto.Reference) {
@@ -230,9 +224,6 @@ func (item *primitiveItem) VisitMap(schema *proto.Map) {
 
 func (item *primitiveItem) VisitKind(schema *proto.Kind) {
 	item.AddValidationError(InvalidTypeError{Path: schema.GetPath().String(), Expected: "map", Actual: item.Kind})
-}
-
-func (item *primitiveItem) VisitArbitrary(schema *proto.Arbitrary) {
 }
 
 func (item *primitiveItem) VisitReference(schema proto.Reference) {
