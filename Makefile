@@ -20,6 +20,12 @@ $(GENERATED_SOURCE): $(GO_SOURCES)
       github.com/projectriff/kubernetes-crds/pkg/apis \
       projectriff.io:v1 \
       --go-header-file  hack/boilerplate.go.txt
+	vendor/k8s.io/code-generator/generate-internal-groups.sh defaulter \
+      github.com/projectriff/kubernetes-crds/pkg/client \
+      '' \
+      github.com/projectriff/kubernetes-crds/pkg/apis \
+      projectriff.io:v1 \
+      --go-header-file  hack/boilerplate.go.txt
 
 codegen-verify:
 	vendor/k8s.io/code-generator/generate-groups.sh all \
