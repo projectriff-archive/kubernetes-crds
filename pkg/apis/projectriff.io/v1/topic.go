@@ -11,6 +11,8 @@ const (
 	FullTopicCRDName    string = TopicPlural + "." + TopicGroup
 )
 
+var defaultPartitions = int32(1)
+
 // +genclient
 // +genclient:noStatus
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
@@ -47,6 +49,7 @@ type TopicList struct {
 }
 
 func SetDefaults_TopicSpec(obj *TopicSpec) {
-	defaultPartitions := int32(1)
-	obj.Partitions = &defaultPartitions
+	if obj.Partitions == nil {
+		obj.Partitions = &defaultPartitions
+	}
 }
