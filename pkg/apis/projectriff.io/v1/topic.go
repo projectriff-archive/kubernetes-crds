@@ -47,7 +47,6 @@ type TopicList struct {
 }
 
 func SetDefaults_TopicSpec(obj *TopicSpec) {
-	log.Printf("Setting defaults for %v", obj)
 	defaultPartitions := int32(1)
 	obj.Partitions = &defaultPartitions
 }
