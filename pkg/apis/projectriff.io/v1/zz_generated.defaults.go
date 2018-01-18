@@ -28,8 +28,13 @@ import (
 // Public to allow building arbitrary schemes.
 // All generated defaulters are covering - they call all nested defaulters.
 func RegisterDefaults(scheme *runtime.Scheme) error {
+	scheme.AddTypeDefaultingFunc(&Function{}, func(obj interface{}) { SetObjectDefaults_Function(obj.(*Function)) })
 	scheme.AddTypeDefaultingFunc(&Topic{}, func(obj interface{}) { SetObjectDefaults_Topic(obj.(*Topic)) })
 	return nil
+}
+
+func SetObjectDefaults_Function(in *Function) {
+	SetDefaults_FunctionSpec(&in.Spec)
 }
 
 func SetObjectDefaults_Topic(in *Topic) {
